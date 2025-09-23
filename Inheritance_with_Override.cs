@@ -33,3 +33,10 @@ public class Program
         
     }
 }
+
+/*
+“Here, Car inherits from Vehicle.
+The parent’s Drive is marked virtual, and the child overrides it.
+When I use a parent reference pointing to a child object, 
+the child’s method runs at runtime — this is runtime polymorphism.
+*/
