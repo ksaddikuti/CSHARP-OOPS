@@ -1,0 +1,45 @@
+using System;
+
+public class AgeException: Exception
+{
+    public AgeException(string message) : base(message) {}
+}
+
+public class Program 
+{
+    public static void Main()
+    {
+        try
+        {
+            Console.WriteLine("Enter your age: ");
+            
+            int age = Convert.ToInt32(Console.ReadLine());
+            
+            if(age < 18) {
+                throw new AgeException("Age must be greater that 18 to procees");
+            } 
+            Console.WriteLine("Access granted. You are eligible!");
+
+        }
+        
+        catch (AgeException ex)
+        {
+            Console.WriteLine($"Custom Error: {ex.Message}");
+        }
+        catch (Exception ex)   // fallback for other errors
+        {
+            Console.WriteLine($"General Error: {ex.Message}");
+        }
+        finally
+        {
+            Console.WriteLine("Program ended.");
+        }
+    }
+}
+
+/*
+created a custom exception AgeException by inheriting from Exception.
+In Main, if age < 18, I throw this exception.
+It’s caught in the specific catch (AgeException) block, while a general catch (Exception) handles other errors.
+This shows how we can define our own rules with custom exceptions.
+*/
